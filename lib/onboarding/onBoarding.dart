@@ -7,7 +7,6 @@ import 'package:tripit1/onboarding/intro_page_3.dart';
 import '../intro_screens/Signin/signin.dart';
 import 'intro_page_1.dart';
 
-
 class OnBoarding extends StatefulWidget {
   @override
   State<OnBoarding> createState() => _OnBoardingState();

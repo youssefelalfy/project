@@ -6,6 +6,7 @@ import 'business.dart';
 import 'dates.dart';
 import 'favorite.dart';
 import 'home.dart';
+
 class bottombar extends StatefulWidget {
   const bottombar({Key? key}) : super(key: key);
 
@@ -14,11 +15,13 @@ class bottombar extends StatefulWidget {
 }
 
 class _bottombarState extends State<bottombar> {
-  int currentIndex=0;
-  changebottom(index){
-    currentIndex=index;
+  int currentIndex = 0;
+
+  changebottom(index) {
+    currentIndex = index;
   }
-  List Screen =[
+
+  List Screen = [
     Home(),
     Favorite(),
     Business(),
@@ -31,16 +34,21 @@ class _bottombarState extends State<bottombar> {
     return Scaffold(
       body: Screen[currentIndex],
       bottomNavigationBar: ConvexAppBar(
-        style: TabStyle.fixedCircle,color: Colors.black,
+        style: TabStyle.fixedCircle,
+        color: Colors.black,
         items: [
-          TabItem(icon: Icons.home,   ),
-          TabItem(icon: Icons.favorite ),
-          TabItem(icon: Icons.business_center_rounded ),
-          TabItem(icon: Icons.event_note_rounded  ),
-          TabItem(icon: Icons.person ),
+          TabItem(
+            icon: Icons.home,
+          ),
+          TabItem(icon: Icons.favorite),
+          TabItem(icon: Icons.business_center_rounded),
+          TabItem(icon: Icons.event_note_rounded),
+          TabItem(icon: Icons.person),
         ],
-        initialActiveIndex:currentIndex ,
-        onTap:(index){changebottom(index);} ,
+        initialActiveIndex: currentIndex,
+        onTap: (index) {
+          changebottom(index);
+        },
         backgroundColor: Colors.white,
         activeColor: CustomColor.green1,
       ),

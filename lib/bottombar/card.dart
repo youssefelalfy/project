@@ -5,6 +5,7 @@ class Card {
 
   Card(this.ImagePath);
 }
+
 List<Card> item2 = [
   Card('assets/Offer2.png'),
   Card('assets/Offer2.png'),

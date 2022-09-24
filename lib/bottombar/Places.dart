@@ -1,6 +1,5 @@
-
 class Places {
- final String ImagePath;
+  final String ImagePath;
 
   Places(this.ImagePath);
 }

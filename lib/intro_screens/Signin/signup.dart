@@ -339,15 +339,19 @@ class _SignupState extends State<Signup> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 97.0),
-                      child: Text("Already have an account?",style: TextStyle(
-                        color: Colors.white,
-                      ),),
+                      child: Text(
+                        "Already have an account?",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     SizedBox(width: 3),
                     GestureDetector(
-                        child: Text("Sign In",style: TextStyle(
-                          color: Colors.white,
-                        )),
+                        child: Text("Sign In",
+                            style: TextStyle(
+                              color: Colors.white,
+                            )),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => SignIn()),
@@ -382,12 +386,10 @@ class _SignupState extends State<Signup> {
 
     dynamic convertedJson = jsonDecode(loginResponse.body);
 
-
-      SignupResponse user = SignupResponse.fromJson(convertedJson);
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Location()),
-      );
-
+    SignupResponse user = SignupResponse.fromJson(convertedJson);
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => Location()),
+    );
 
     setState(() {
       isLoading = false;

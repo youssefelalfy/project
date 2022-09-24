@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import '../location/drawer.dart';
 import 'package:tripit1/bottombar/card.dart';
-class CardItem{
+
+class CardItem {
   final String Image;
 
   const CardItem({
     required this.Image,
   });
 }
+
 class CardItem2 {
   final String Image;
 
@@ -16,6 +18,7 @@ class CardItem2 {
     required this.Image,
   });
 }
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -24,30 +27,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CardItem> item1=[
-    CardItem(
-        Image: 'assets/Paris.png'
-    ),
-    CardItem(
-        Image: 'assets/Los Anglos.png'
-    ),
-    CardItem(
-        Image: 'assets/india2.png'
-    ),
-    CardItem(
-        Image: 'assets/New York.png'
-    ),
+  List<CardItem> item1 = [
+    CardItem(Image: 'assets/Paris.png'),
+    CardItem(Image: 'assets/Los Anglos.png'),
+    CardItem(Image: 'assets/india2.png'),
+    CardItem(Image: 'assets/New York.png'),
   ];
-  List<CardItem2> item3=[
-    CardItem2(
-        Image: 'assets/Places 01.png'
-    ),
-    CardItem2(
-        Image: 'assets/Places 02.png'
-    ),
-    CardItem2(
-        Image: 'assets/Places 03.png'
-    ),
+  List<CardItem2> item3 = [
+    CardItem2(Image: 'assets/Places 01.png'),
+    CardItem2(Image: 'assets/Places 02.png'),
+    CardItem2(Image: 'assets/Places 03.png'),
   ];
 
   @override
@@ -95,45 +84,52 @@ class _HomeState extends State<Home> {
               child: Image.asset("assets/t1.png"),
             ),
             Container(
-              height:155 ,
+              height: 155,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
-                itemBuilder: (context, index) => buildCard(item: item1[index ]),
-                separatorBuilder: ( context, index) => SizedBox(width: 0),
+                itemBuilder: (context, index) => buildCard(item: item1[index]),
+                separatorBuilder: (context, index) => SizedBox(width: 0),
               ),
             ),
-            Stack(children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 18.0),
-                child: Container(child: Image.asset("assets/Offer.png",fit: BoxFit.cover)),
-              ),
-              Padding(
-                  padding: const EdgeInsets.only(top: 90.0),
-                  child: SizedBox(
-                    height: 165,
-                    child: ScrollSnapList(
-                      initialIndex: 1,
-                      itemBuilder: buildListItem,
-                      itemCount: 3,
-                      itemSize: 250, //مش عارف اظبط الابعاد بالظبط
-                      onItemFocus: (index) {},
-                      dynamicItemSize: true,
-                    ),
-                  ))
-            ],),
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 18.0),
+                  child: Container(
+                      child:
+                          Image.asset("assets/Offer.png", fit: BoxFit.cover)),
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(top: 90.0),
+                    child: SizedBox(
+                      height: 165,
+                      child: ScrollSnapList(
+                        initialIndex: 1,
+                        itemBuilder: buildListItem,
+                        itemCount: 3,
+                        itemSize: 250, //مش عارف اظبط الابعاد بالظبط
+                        onItemFocus: (index) {},
+                        dynamicItemSize: true,
+                      ),
+                    ))
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 180),
               child: Image.asset("assets/t2.png"),
             ),
-            SizedBox(height: 16,),
+            SizedBox(
+              height: 16,
+            ),
             Container(
-               height: 195,
+              height: 195,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
-                itemBuilder: (context, index) => buildCard2(item3: item3[index]),
-                separatorBuilder: ( context, index) => SizedBox(width: 20),
+                itemBuilder: (context, index) =>
+                    buildCard2(item3: item3[index]),
+                separatorBuilder: (context, index) => SizedBox(width: 20),
               ),
             ),
           ],
@@ -141,29 +137,21 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-  Widget buildCard({
-    required CardItem item
-  }) =>
-      Container(
+
+  Widget buildCard({required CardItem item}) => Container(
         width: 108,
         child: Column(
-          children: [
-            Expanded(child: Image.asset(item.Image))
-          ],
+          children: [Expanded(child: Image.asset(item.Image))],
         ),
-      ) ;
-  Widget buildCard2({
-    required CardItem2 item3
-  }) =>
-        Container(
-          width: 110,
+      );
 
-          child: Column(
-            children: [
-              Image.asset(item3.Image)
-            ],
-      ),
-        ) ;
+  Widget buildCard2({required CardItem2 item3}) => Container(
+        width: 110,
+        child: Column(
+          children: [Image.asset(item3.Image)],
+        ),
+      );
+
   Widget buildListItem(BuildContext context, index) {
     var card = item2[index];
     return SizedBox(

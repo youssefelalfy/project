@@ -9,6 +9,7 @@ import '../bottombar/home.dart';
 import '../bottombar/person.dart';
 import '../colors.dart';
 import '../location/drawer.dart';
+
 class Business extends StatefulWidget {
   const Business({Key? key}) : super(key: key);
 
@@ -17,7 +18,6 @@ class Business extends StatefulWidget {
 }
 
 class _BusinessState extends State<Business> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,10 @@ class _BusinessState extends State<Business> {
         child: Drawer1(),
       ),
       appBar: AppBar(
-        title: Text('LOCATION',style: TextStyle(color: Colors.black),),
+        title: Text(
+          'LOCATION',
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -33,7 +36,7 @@ class _BusinessState extends State<Business> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(
-                Icons.clear_all_rounded ,
+                Icons.clear_all_rounded,
                 color: Colors.black,
                 size: 33, // Changing Drawer Icon Size
               ),
@@ -49,35 +52,34 @@ class _BusinessState extends State<Business> {
           children: [
             Container(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(38.0,0.0,38,14.0),
+                padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38, 14.0),
                 child: Image.asset("assets/usa.png"),
               ),
             ),
             Container(
               child: GestureDetector(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(38.0,0.0,38,14.0),
+                  padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38, 14.0),
                   child: Image.asset("assets/france.png"),
-                ),onTap: (){
-
-              },
+                ),
+                onTap: () {},
               ),
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(38.0,0.0,38,14.0),
+                padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38, 14.0),
                 child: Image.asset("assets/india.png"),
               ),
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(38.0,0.0,38,14.0),
+                padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38, 14.0),
                 child: Image.asset("assets/england.png"),
               ),
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(38.0,0.0,38,14.0),
+                padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38, 14.0),
                 child: Image.asset("assets/australia.png"),
               ),
             ),
@@ -87,5 +89,3 @@ class _BusinessState extends State<Business> {
     );
   }
 }
-
-

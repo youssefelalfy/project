@@ -231,15 +231,19 @@ class _SignInState extends State<SignIn> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 100.0),
-                      child: Text("Dont't have an account?",style: TextStyle(
-                        color: Colors.white,
-                      ),),
+                      child: Text(
+                        "Dont't have an account?",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     SizedBox(width: 3),
                     GestureDetector(
-                        child: Text("Sign up",style: TextStyle(
-                          color: Colors.white,
-                        )),
+                        child: Text("Sign up",
+                            style: TextStyle(
+                              color: Colors.white,
+                            )),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Signup()),
@@ -260,34 +264,31 @@ class _SignInState extends State<SignIn> {
       isLoading = true;
     });
 
-    Response loginResponse = await post(
-        Uri.parse("http://alcaptin.com/api/login"),
-        headers: {
-          "Accept": "application/json",
-          "isMobile": "1",
-          "appType": "client",
-        },
-        body: {
-          "email": email,
-          "password": password,
-          "device_id": "50",
-          "device_name": "test",
-        });
+    Response loginResponse =
+        await post(Uri.parse("http://alcaptin.com/api/login"), headers: {
+      "Accept": "application/json",
+      "isMobile": "1",
+      "appType": "client",
+    }, body: {
+      "email": email,
+      "password": password,
+      "device_id": "50",
+      "device_name": "test",
+    });
 
-    dynamic convertedJson =jsonDecode(loginResponse.body);
+    dynamic convertedJson = jsonDecode(loginResponse.body);
 
-    if(loginResponse.statusCode == 200) {
+    if (loginResponse.statusCode == 200) {
       LoginResponse user = LoginResponse.fromJson(convertedJson);
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => Location()),
       );
-    }else{
+    } else {
       print(convertedJson["message"]);
     }
 
     setState(() {
       isLoading = false;
     });
-
   }
 }

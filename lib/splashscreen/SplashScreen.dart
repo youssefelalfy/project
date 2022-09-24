@@ -12,17 +12,18 @@ class MySplashScreen extends StatefulWidget {
 }
 
 class _MySplashScreenState extends State<MySplashScreen> {
-  void initState(){
+  void initState() {
     super.initState();
-    Timer(Duration(seconds: 2),navigatorToSecondPage);
+    Timer(Duration(seconds: 2), navigatorToSecondPage);
   }
 
-  void navigatorToSecondPage(){
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => OnBoarding()),);
+  void navigatorToSecondPage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => OnBoarding()),
+    );
   }
+
   @override
-
-
   Widget build(BuildContext context) {
     return Material(
       child: Container(

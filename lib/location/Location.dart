@@ -36,7 +36,9 @@ class _LocationState extends State<Location> {
         style: TabStyle.fixedCircle,
         color: Colors.black,
         items: [
-          TabItem(icon: Icons.home,),
+          TabItem(
+            icon: Icons.home,
+          ),
           TabItem(icon: Icons.favorite),
           TabItem(icon: Icons.business_center_rounded),
           TabItem(icon: Icons.event_note_rounded),
